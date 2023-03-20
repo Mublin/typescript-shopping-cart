@@ -36,7 +36,7 @@ function App() {
   }
   // console.log(state.cart.reduce((a : number,c: Product)=> a+c.quantity, 0))
   const result = searchHandler(search)
-  console.log(state)
+  // console.log(state)
   return (
     // <CounterProvider count={initState.count} text={initState.text}>
    

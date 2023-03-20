@@ -10,10 +10,6 @@ import { Helmet } from 'react-helmet-async'
 export default function CartScreen() {
   const {state: Cstate, addTocartHandler, decreasecartHandler, removeFromCartHandler} = useContext(CartContext)
   const addingToCart = (item: Product)=>{
-    if (item.inStock === item.quantity) {
-      alert("Item is out of stock")
-      throw Error("Item is out of stock")
-    }
     const existItem = Cstate.cart.find((product: Product)=>{
         return product._id === item._id
     })

@@ -14,7 +14,7 @@ export default function SearchScreen() {
             if (words !== "" && (c.name).includes(words)) {
                 a.push(c)
             }
-            // console.log(a)
+            // console.log(a)w2
             return a
         },[])
         return searchResult

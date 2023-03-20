@@ -41,6 +41,10 @@ const useCartContext = (initialState: initialStateType)=>{
 
 
     const addTocartHandler =(newItem: Product):void =>{
+        if (newItem.inStock === newItem.quantity) {
+            alert("Item is out of stock")
+            throw Error("Item is out of stock")
+          }
         const existItem = state.cart.find((item : Product)=> item._id === newItem._id)
         // console.log(existItem)
         const cartItem = existItem ? state.cart.map((x)=>{
