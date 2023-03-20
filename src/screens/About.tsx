@@ -10,7 +10,7 @@ export default function About() {
         <Card className="text-center">
       <Card.Body style={{display: "flex", flexDirection: "column"}}>
         <Card.Title>About Kano-Market</Card.Title>
-        <Card.Text style={{ margin: "0 4rem 0 4rem"}}>
+        <Card.Text style={{ margin: "0 1rem 0 1rem"}}>
         Welcome to our e-commerce website!
 
 Our website is dedicated to providing you with the best online shopping experience possible. We offer a wide range of products from various categories, including electronics, fashion, beauty, home, and more. Our goal is to make shopping easy, convenient, and affordable for our customers.
