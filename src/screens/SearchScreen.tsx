@@ -14,13 +14,13 @@ export default function SearchScreen() {
             if (words !== "" && (c.name).includes(words)) {
                 a.push(c)
             }
-            console.log(a)
+            // console.log(a)
             return a
         },[])
         return searchResult
     }
     const searchResult = result(query as string)
-    console.log(searchResult)
+    // console.log(searchResult)
   return (<div>
     <Helmet>
             <title>Kano-Market Search</title>

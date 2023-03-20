@@ -67,7 +67,7 @@ export default function HomeScreen() {
         </Helmet>
     <Carousel>
     {sliderArray.map(x=>(
-        <Carousel.Item >
+        <Carousel.Item key={x} >
         <img
           className="d-block w-100"
           style={{height: "80dvh"}}
