@@ -1,0 +1,68 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #ffffffde;
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+html body{
+  width: 100vw !important;
+  margin: 0;
+  padding: 0;
+}
+.width{
+  width: 100dvw;
+  min-height: 100dvh;
+}
+.cards{
+  display: flex;
+  flex-direction: column;
+}
+.card-item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.card-cont{
+  margin: 1rem 1rem;  
+}
+main{
+  min-height: 87dvh;
+}
+footer{
+  background-color: #242424;
+  color: aliceblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-tools{
+  margin-right: 1rem;
+  text-decoration: none;
+}
+.card-body{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex: 1;
+  align-items: center;
+}
+.item-quantity{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.item-quantity button{
+  margin: 0 1rem;
+}
