@@ -10,9 +10,10 @@ import { callback } from 'react-paystack/dist/types'
 
 export default function CheckoutScreen() {
     const {state: Cstate, payment} = useContext(CartContext)
+    const userEmail = Cstate.userInfo?.email
     const config ={
         reference: (new Date()).getTime().toString(),
-        email: Cstate.userInfo?.name,
+        email: userEmail,
         amount: Cstate.cart.reduce((a : number, c: Product): number=> {
             if (Cstate.cart.length !== 0){
              return (c.price * c.quantity) + a
