@@ -7,9 +7,10 @@ import { useNavigate } from 'react-router-dom'
 
 export default function UserInfoScreen() {
     const { state, addUserDetails } = useContext(CartContext)
+    const { userInfo } = state
     const navigate = useNavigate()
-    const [name, setName] = useState<string>("")
-    const [email, setEmail] = useState<string>("")
+    const [name, setName] = useState<string>(userInfo ? userInfo.name : "")
+    const [email, setEmail] = useState<string>(userInfo ? userInfo.email : "")
     const submitHandler = (e: MouseEvent<HTMLFormElement>): void =>{
         e.preventDefault()
         const user = {
