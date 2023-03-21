@@ -76,7 +76,7 @@ export default function CheckoutScreen() {
         </div>)}
     {Cstate.cart.length === 0 ? <></> : <PaystackButton {...componentProps as { 
     text: string;
-    onSuccess: ({reference} as callback) => void;
+    onSuccess: (reference: callback) => void;
     onClose: () => void;
     reference: string;
     email: string;
