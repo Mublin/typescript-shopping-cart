@@ -12,7 +12,7 @@ export default function CheckoutScreen() {
     const {state: Cstate, payment} = useContext(CartContext)
     const config ={
         reference: (new Date()).getTime().toString(),
-        email: "mubleen@gmail.com",
+        email: "sanikabirinuwa@gmail.com",
         amount: Cstate.cart.reduce((a : number, c: Product): number=> {
             if (Cstate.cart.length !== 0){
              return (c.price * c.quantity) + a
