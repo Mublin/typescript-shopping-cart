@@ -94,9 +94,9 @@ const componentProps = {
           },0)
         }</h3>
         <div className="d-grid gap-2">
-      <Link to={"/checkout"} style={{textDecoration: "none"}}><Button variant="primary" size="lg">
+        {Cstate.cart.length === 0 ? <></> : <Link to={"/cartinfo"} style={{textDecoration: "none"}}><Button variant="primary" size="lg">
         Proceed to checkout
-      </Button></Link>
+      </Button></Link>}
     </div>
         </div>
   )

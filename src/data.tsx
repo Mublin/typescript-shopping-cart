@@ -6,6 +6,10 @@ export type Product ={
     img: string,
     inStock: number
 }
+export type User = {
+    name: string,
+    email: string
+}
 
 export const products : Product[] =[{
     name: "Nike Tshirt",

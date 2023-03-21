@@ -19,6 +19,8 @@ import { Product, products } from './data'
 import SearchScreen from './screens/SearchScreen'
 import { Helmet } from 'react-helmet-async'
 import CheckoutScreen from './screens/CheckoutScreen'
+import UserInfoScreen from './screens/UserInfoScreen'
+import ProtectedRoute from './components/ProtectedRoute'
 
 
 
@@ -83,7 +85,8 @@ function App() {
           <Route path='/cart' element={<CartScreen />} />
           <Route path='/about' element={<About />} />
           <Route path='/search' element={<SearchScreen />} />
-          <Route path='/checkout' element={<CheckoutScreen />} />
+          <Route path='/cartinfo' element={<UserInfoScreen />} />
+          <Route path='/checkout' element={<ProtectedRoute><CheckoutScreen /></ProtectedRoute>} />
         </Routes>
       </main>
       <div className="footer">

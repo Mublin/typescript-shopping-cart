@@ -2,7 +2,7 @@ import React, { useContext, MouseEvent } from 'react'
 import { CartContext } from '../context/CartContext'
 import { Product } from '../data'
 import Card from "react-bootstrap/Card"
-import Button from "react-bootstrap/Button"
+// import Button from "react-bootstrap/Button"
 import { Helmet } from 'react-helmet-async'
 import { PaystackButton } from 'react-paystack'
 import { Link } from 'react-router-dom'
@@ -12,7 +12,7 @@ export default function CheckoutScreen() {
     const {state: Cstate, payment} = useContext(CartContext)
     const config ={
         reference: (new Date()).getTime().toString(),
-        email: "sanikabirinuwa@gmail.com",
+        email: Cstate.userInfo?.name,
         amount: Cstate.cart.reduce((a : number, c: Product): number=> {
             if (Cstate.cart.length !== 0){
              return (c.price * c.quantity) + a
@@ -39,7 +39,7 @@ export default function CheckoutScreen() {
       const componentProps = {
           ...config,
           text: 'Paystack Payment Gateway',
-          onSuccess: (reference: any): void => handlePaystackSuccessAction(reference),
+          onSuccess: (reference: string): void => handlePaystackSuccessAction(reference),
           onClose: handlePaystackCloseAction,
       };
   return (

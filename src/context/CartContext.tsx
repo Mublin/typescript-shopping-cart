@@ -1,36 +1,41 @@
 import { MouseEvent, ReactElement, createContext, useReducer } from "react"
-import { Product } from "../data"
+import { Product, User } from "../data"
 
 type initialStateType ={
     cart: Product[]
+    userInfo: User | null
 }
 
 export const initialState = {
-    cart: []
+    cart: [],
+    userInfo: null
 }
 
 const enum REDUCER_ACTION_TYPE{
     AddToCart,
     RemoveFromCart,
     DecrementFromCart,
+    AddUser,
     PaymentSuccess
 }
 
 type ReducerAction = {
     type: REDUCER_ACTION_TYPE,
-    payload: Product[]
+    payload: Product[] | User
 }
 
 const reducer = (state: initialStateType, action: ReducerAction): initialStateType =>{
     switch (action.type) {
         case REDUCER_ACTION_TYPE.AddToCart:
-            return {...state, cart: action.payload}
+            return {...state, cart: action.payload as Product[]}
             case REDUCER_ACTION_TYPE.DecrementFromCart:
-                return {...state, cart: action.payload}
+                return {...state, cart: action.payload as Product[]}
                 case REDUCER_ACTION_TYPE.RemoveFromCart:
-                    return {...state, cart: action.payload}
+                    return {...state, cart: action.payload as Product[]}
+                    case REDUCER_ACTION_TYPE.AddUser:
+                    return {...state, userInfo: action.payload as User}
                     case REDUCER_ACTION_TYPE.PaymentSuccess:
-                    return {...state, cart: action.payload}
+                    return {...state, cart: action.payload as Product[]}
     
         default:
             return state;
@@ -77,13 +82,19 @@ const useCartContext = (initialState: initialStateType)=>{
             payload: cartItems
         })    
     }
+    const addUserDetails = (user: User): void=>{
+        dispatch({
+            type: REDUCER_ACTION_TYPE.AddUser,
+            payload: user
+        })
+    }
     const payment = ()=> {
         dispatch({
             type: REDUCER_ACTION_TYPE.PaymentSuccess,
             payload: []
         })
     }
-    return {state, addTocartHandler, decreasecartHandler, removeFromCartHandler, payment}
+    return {state, addUserDetails, addTocartHandler, decreasecartHandler, removeFromCartHandler, payment}
 }
 type useCartContextType = ReturnType<typeof useCartContext>
 
@@ -92,6 +103,7 @@ const initialContextState : useCartContextType = {
     addTocartHandler: ():void =>{},
     decreasecartHandler: ():void =>{},
     removeFromCartHandler: (): void => {},
+    addUserDetails: (): void =>{},
     payment: (): void => {}
 }
 
