@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button"
 import { Helmet } from 'react-helmet-async'
 import { PaystackButton } from 'react-paystack'
 import { Link } from 'react-router-dom'
+import { callback } from 'react-paystack/dist/types'
 
 export default function CheckoutScreen() {
     const {state: Cstate, payment} = useContext(CartContext)
@@ -33,12 +34,12 @@ export default function CheckoutScreen() {
         // Implementation for whatever you want to do with reference and after success call.
         window.alert("Payment Successful")
         payment()
-      };
+      }
       
       const componentProps = {
           ...config,
           text: 'Paystack Payment Gateway',
-          onSuccess: (reference : string) => handlePaystackSuccessAction(reference),
+          onSuccess: (reference: any): void => handlePaystackSuccessAction(reference),
           onClose: handlePaystackCloseAction,
       };
   return (
@@ -73,7 +74,15 @@ export default function CheckoutScreen() {
           },0)
         }</h3>
         </div>)}
-    {Cstate.cart.length === 0 ? <></> : <PaystackButton {...componentProps} />}
+    {Cstate.cart.length === 0 ? <></> : <PaystackButton {...componentProps as { 
+    text: string;
+    onSuccess: ({reference} as callback) => void;
+    onClose: () => void;
+    reference: string;
+    email: string;
+    amount: number;
+    publicKey: string;
+}} />}
     </div>
   )
 }
