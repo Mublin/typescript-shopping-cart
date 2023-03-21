@@ -12,7 +12,8 @@ export const initialState = {
 const enum REDUCER_ACTION_TYPE{
     AddToCart,
     RemoveFromCart,
-    DecrementFromCart
+    DecrementFromCart,
+    PaymentSuccess
 }
 
 type ReducerAction = {
@@ -27,6 +28,8 @@ const reducer = (state: initialStateType, action: ReducerAction): initialStateTy
             case REDUCER_ACTION_TYPE.DecrementFromCart:
                 return {...state, cart: action.payload}
                 case REDUCER_ACTION_TYPE.RemoveFromCart:
+                    return {...state, cart: action.payload}
+                    case REDUCER_ACTION_TYPE.PaymentSuccess:
                     return {...state, cart: action.payload}
     
         default:
@@ -74,7 +77,13 @@ const useCartContext = (initialState: initialStateType)=>{
             payload: cartItems
         })    
     }
-    return {state, addTocartHandler, decreasecartHandler, removeFromCartHandler}
+    const payment = ()=> {
+        dispatch({
+            type: REDUCER_ACTION_TYPE.PaymentSuccess,
+            payload: []
+        })
+    }
+    return {state, addTocartHandler, decreasecartHandler, removeFromCartHandler, payment}
 }
 type useCartContextType = ReturnType<typeof useCartContext>
 
@@ -82,7 +91,8 @@ const initialContextState : useCartContextType = {
     state: initialState,
     addTocartHandler: ():void =>{},
     decreasecartHandler: ():void =>{},
-    removeFromCartHandler: (): void => {}
+    removeFromCartHandler: (): void => {},
+    payment: (): void => {}
 }
 
 export const CartContext = createContext<useCartContextType>(initialContextState)

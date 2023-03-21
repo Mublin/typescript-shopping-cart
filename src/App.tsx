@@ -9,15 +9,16 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import Row from 'react-bootstrap/Row'
+// import NavDropdown from 'react-bootstrap/NavDropdown';
+// import Row from 'react-bootstrap/Row'
 // import { CounterProvider, initState } from './context/CounterContext'
 import { CartContext } from './context/CartContext'
 import { ChangeEvent, MouseEvent, useContext, useState } from 'react'
 import { Product, products } from './data'
-import ProductC from './components/ProductC'
+// import ProductC from './components/ProductC'
 import SearchScreen from './screens/SearchScreen'
 import { Helmet } from 'react-helmet-async'
+import CheckoutScreen from './screens/CheckoutScreen'
 
 
 
@@ -82,6 +83,7 @@ function App() {
           <Route path='/cart' element={<CartScreen />} />
           <Route path='/about' element={<About />} />
           <Route path='/search' element={<SearchScreen />} />
+          <Route path='/checkout' element={<CheckoutScreen />} />
         </Routes>
       </main>
       <div className="footer">
