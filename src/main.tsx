@@ -8,7 +8,7 @@ import { HelmetProvider } from 'react-helmet-async'
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <HelmetProvider>
-     <CartProvider cart={initialState.cart}>
+     <CartProvider cart={initialState.cart} userInfo={initialState.userInfo}>
     <App />
     </CartProvider>
     </HelmetProvider>
